@@ -7,14 +7,14 @@ exec EXO_PRC_ConceptosCompletos
 exec EXO_PRC_Liquidacion_Venta 
 select * from EXO_VWLIQUIDACION_VENTA
 
-
+exec Prc_PreCarga_Liquidaciones_Venta 
 
 --Modulo de análisis
 --------------------
-select * from EXO_TB_CONTROL_LIQUIDACION_VENTA where IdLiquidacion = '509083'
+select * from EXO_TB_CONTROL_LIQUIDACION_VENTA where IdLiquidacion = '539586'
 
 
-select * from EXO_TB_Reporte_Control_Liquidacion_Venta where Liquidacion = '509053'  and Viaje = 51398
+select * from EXO_TB_Reporte_Control_Liquidacion_Venta with(nolock) where Liquidacion = '539586'
 
 
 --Control tarifas en firma 2
@@ -39,8 +39,15 @@ inner join LNK_A_ERP_EXOLOG200.ERP.dbo.stg_tarifas stg_t on stg_t.item = t.Refer
 where t.idestadotarifa = 13 and t.eliminado = 0  
 group by t.ReferenciaExterna, concat(year(t.VigenciaDesde), RIGHT('00' + Ltrim(Rtrim(Month(t.VigenciaDesde))),2),RIGHT('00' + Ltrim(Rtrim(Day(t.VigenciaDesde))),2))
 
+--Actualizar guia y estado liquidacion
+--2guia  --1 liquidacion (estados para poder retarifar y trabajar sobre la liquidacion)
+--
+--update Guia set IdEstadoGuia = 4 where IdLiquidacion in ('539486', '539487') 
+--update Liquidacion set IdEstadoLiquidacion = 3 where IdLiquidacion in ('539486', '539487')
 
-update Guia set IdEstadoGuia = 2 where IdLiquidacion is null and IdEstadoGuia = 8
+select * from EXO_TB_CONTROL_LIQUIDACION_VENTA where IdLiquidacion in ('539472', '539586')
 
 
---update Liquidacion set IdEstadoLiquidacion = 4 where IdLiquidacion = '509083'
+--select * from EXO_TB_Reporte_Control_Liquidacion_Venta where Liquidacion in ('539486', '539487')
+
+select * from Guia where IdLiquidacion in ('539486', '539487') --4

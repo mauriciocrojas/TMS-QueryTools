@@ -13,3 +13,16 @@ select ReferenciaExterna, Fecha, * from Pedido where ReferenciaExterna in ('0391
 
 select * from Orden where IdClienteOrden = 38269
 select * from Operacion where IdOperacion = 1022
+
+---
+select * from Pedido where ReferenciaExterna in 
+('1322006','1323146','1321922', '1324232')
+
+select * from EstadoPedido
+
+select IdEstadoOrden, * from Orden where RefOrdenExterna in 
+('1322006|01','1323146|01','1321922|01', '1324232|01')
+
+--update Orden set IdEstadoOrden = 4 where RefOrdenExterna in ('1322006|01')
+
+select * from EstadoOrden
