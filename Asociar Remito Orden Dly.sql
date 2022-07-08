@@ -1,7 +1,7 @@
-select * from EXO_Remito_Orden where RefExterna in ('0081702418')
+select * from EXO_Remito_Orden where RefExterna in ('0317544884')
 
 --select * from Pedido where ReferenciaExterna in ('0081702418')
-select * from Orden where ReferenciaPedido in ('0081702418')
+select NumeroRemito, * from Orden where ReferenciaPedido in ('0317544884')
 
 select NumeroRemito, * from Orden where IdOrden in ('1361097')
 --remito 00239-00063098
