@@ -19,7 +19,7 @@
 --1 Ingresado
 --1013 Pendiente de remito
 
-   DECLARE @IdEstadoPedidoNew int = 1, @IdEstadoOrdenNew int = 1012;
+   DECLARE @IdEstadoPedidoNew int = 4 , @IdEstadoOrdenNew int = 1000;
 
    DECLARE @PedidoTurno AS TABLE (IdPedido int, IdOrden int,
    IdEstadoPedidoOld int, idEstadoPedidoNEW int,
@@ -37,9 +37,9 @@
    inner join EstadoOrden eoo on eoo.IdEstadoOrden = o.IdEstadoOrden
    inner join EstadoPedido ep on ep.IdEstadoPedido = @IdEstadoPedidoNew
    inner join EstadoOrden eo on eo.IdEstadoOrden = @IdEstadoOrdenNew
-   where o.IdOrden in (418203)
+   where o.IdOrden in (1378766)
 		    
- 
+ ---Bloque de pedido---
         --Carga registro cambio de estado en bitácora
         insert into BitacoraPedido (IdPedido,bitacora,fecha,login) 
         (
@@ -56,9 +56,10 @@
   --Marca como eliminado turnos que se generan duplicados
   update Pedido set IdEstadoPedido = @IdEstadoPedidoNew
   where idpedido in (select IdPedido from @PedidoTurno)
+    --------
     
-    
-    
+ 
+   ---- Parte orden ----
      --Carga registro cambio de estado en bitácora
         insert into BitacoraOrden (IdOrden,bitacora,fecha,login) 
         (
@@ -77,6 +78,7 @@
   where idOrden in (select IdOrden from @PedidoTurno)
 
   update Pedido set IdEstadoPedido = 1 where ReferenciaExterna = '0710767691'
+-------
 
 
   --agregado

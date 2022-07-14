@@ -40,7 +40,7 @@ where t.idestadotarifa = 13 and t.eliminado = 0
 group by t.ReferenciaExterna, concat(year(t.VigenciaDesde), RIGHT('00' + Ltrim(Rtrim(Month(t.VigenciaDesde))),2),RIGHT('00' + Ltrim(Rtrim(Day(t.VigenciaDesde))),2))
 
 --Actualizar guia y estado liquidacion
---2guia  --1 liquidacion (estados para poder retarifar y trabajar sobre la liquidacion)
+--2(liquidable)guia  --1(inicial)liquidacion (estados para poder retarifar y trabajar sobre la liquidacion)
 --
 --update Guia set IdEstadoGuia = 4 where IdLiquidacion in ('539486', '539487') 
 --update Liquidacion set IdEstadoLiquidacion = 3 where IdLiquidacion in ('539486', '539487')
