@@ -11,3 +11,4 @@ select * from EstadoOrden
 
 
 --update Remito set cot = 'Ok' where IdOrden in ('1370829', '1370832')
+--una vez cambiado a Ok, no se vuelve a intentar generar cot.

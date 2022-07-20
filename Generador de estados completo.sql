@@ -6,6 +6,7 @@
 --3 En Viaje
 --6 No Entrega Exo
 --1023 No Preparado
+--7 cancelada
 
 --Estado Pedido
 --4 Preparado
@@ -18,8 +19,12 @@
 --No Preparado 1020
 --1 Ingresado
 --1013 Pendiente de remito
+--9 cancelado
 
-   DECLARE @IdEstadoPedidoNew int = 4 , @IdEstadoOrdenNew int = 1000;
+
+select * from EstadoPedido
+select * from EstadoOrden
+   DECLARE @IdEstadoPedidoNew int = 9 , @IdEstadoOrdenNew int = 7;
 
    DECLARE @PedidoTurno AS TABLE (IdPedido int, IdOrden int,
    IdEstadoPedidoOld int, idEstadoPedidoNEW int,
@@ -37,7 +42,7 @@
    inner join EstadoOrden eoo on eoo.IdEstadoOrden = o.IdEstadoOrden
    inner join EstadoPedido ep on ep.IdEstadoPedido = @IdEstadoPedidoNew
    inner join EstadoOrden eo on eo.IdEstadoOrden = @IdEstadoOrdenNew
-   where o.IdOrden in (1378766)
+   where o.IdOrden in (1341368)
 		    
  ---Bloque de pedido---
         --Carga registro cambio de estado en bitácora
