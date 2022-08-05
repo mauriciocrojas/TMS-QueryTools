@@ -34,12 +34,20 @@ Reprocesar desde portal, correr la interfaz de preparación (transmitlog, transmi
 correr la interfaz de remito en el caso de nike en portal (LIBERATIONLOG)  y luego alinear con generador de estados el pedido.
 */
 
-select status, SENDTOFLEET, * from [3PL_POOL].dbo.PL_ORDERS where EXTERNORDERKEY in ('1089338794','1089106048')
+--!--
+select status, SENDTOFLEET, * from [3PL_POOL].dbo.PL_ORDERS where EXTERNORDERKEY in ('0391457875')
+
+--select status, SENDTOFLEET, ID_DELIVERYADDRESS1, ID_DELIVERYADDRESS2, * from [3PL_POOL].dbo.PL_ORDERS where EXTERNORDERKEY in ('0391457875')
+
+--select * from [3PL_POOL].dbo.PL_ORDERDETAIL where IdOrder in ('1342339')
+
+--select * from [3PL_POOL].dbo.PL_DELIVERYADDRESSES where IDDELIVERYADDRESSES=55519
+
 
 --En este caso se debe reprocesar desde portal para que ingrese nuevamente en fleet con el cliente orden completo.
----update Pl_Orders set SENDTOFLEET = null, status = 1 where EXTERNORDERKEY in ('1089338794','1089106048')
+--update [3PL_POOL].dbo.PL_Orders set SENDTOFLEET = null, status = 1 where EXTERNORDERKEY in ('0391457875')
 
-select * from [3PL_POOL].dbo.PL_STATUS where IdCustomer = 64 and value in (88)
+select * from [3PL_POOL].dbo.PL_STATUS where IdCustomer = 7361 and value in (18)
 
 select * from [3PL_POOL].dbo.PL_LIBERATION_LOG where EXTERNORDERKEY in ('1089338794','1089106048')
 
