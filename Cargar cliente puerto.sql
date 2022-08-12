@@ -18,13 +18,13 @@ INSERT INTO [UNIGIS_DataRepository].dbo.UsuarioCliente (idcliente,Login, asignar
 SELECT @IdFleet AS idcliente, login, 0 AS asignarviaje FROM [UNIGIS_DataRepository].dbo.GrupoUsuario WHERE IdGrupo IN (1,6,14,8,10,13,15,16,18,28,40,41)
 
 
-select * from PL_USERS_CUSTOMERS where IDCUSTOMER=8868
+select * from [3PL_POOL].dbo.PL_USERS_CUSTOMERS where IDCUSTOMER=8868
 
 
-select * from UNIGIS_DataRepository.dbo.Cliente where RazonSocial like '%CUVILLIER%' --9418
+select * from UNIGIS_DataRepository.dbo.Cliente where RazonSocial like '%AMAUTA%' --9418
 
 
-select * from PL_CUSTOMERS where CUSTOMER like '%CUVILLIER%'--8868
+select * from [3PL_POOL].dbo.PL_CUSTOMERS where CUSTOMER like '%AMAUTA%'--8868
 
 
 select * from UNIGIS_DataRepository.dbo.OperacionCliente where IdCliente=9418 --where RazonSocial like '%OFFAL%'
@@ -33,4 +33,4 @@ select * from UNIGIS_DataRepository.dbo.OperacionCliente where IdCliente=9418 --
 select * from UNIGIS_DataRepository.dbo.operacion --0000003685
 
 
-select * from PL_OPERATIONS
+select * from [3PL_POOL].dbo.PL_OPERATIONS

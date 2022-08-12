@@ -1,6 +1,6 @@
 --Consulta base PL
 
-select status, * from  [3PL_POOL].dbo.PL_ORDERS where EXTERNORDERKEY in ('1083423494')
+select RECORD_TYPE, status, * from  [3PL_POOL].dbo.PL_ORDERS where EXTERNORDERKEY in ('1083423494')
 
 select * from [3PL_POOL].dbo.PL_STATUS where IdCustomer=64
 

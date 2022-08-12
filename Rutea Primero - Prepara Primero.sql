@@ -41,4 +41,11 @@ Exo -> Expreso(ejemplo Tradelog) -> Destino(ejemplo Córdoba)
 Codigo de dirección, para asociar con domicilioorden.
 Por otro lado es que el cliente si nos informa endpointcode y una dirección 
 diferente a la actual, actualizaría con la nueva y si no existe el epc lo da de alta.
+
+RTOM: Remito manual.
+
+Record_Type((como ingresó el pedido)pl_orders):
+--null interfaz
+--2,  import excel
+--3 manual
 */
