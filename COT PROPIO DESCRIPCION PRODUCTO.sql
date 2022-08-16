@@ -2,15 +2,18 @@
 --El cot se genera sobre la orden
 --960899 codigo mercosur genérico TPV 
 
-select * from Orden where IdOrden in (1424548) 
+select * from Orden where RefOrdenExterna in ('0391495773') 
 
-select * from OrdenItem where IdOrden in (1424548) 
+select * from OrdenItem where IdOrden in (1426102) 
 
-select * from OrdenItem_Dyn where IdOrdenItem = 6297238
+select sku, * from OrdenItem_Dyn where IdOrdenItem = 6316001
+
+select sku, * from OrdenItem_Dyn where IdOrdenItem in (6316000,
+6315999) 
 
 select * from OrdenItem where RefItemExterno in ('420613672172') --o filtrar por id orden
 
---update OrdenItem set Descripcion = 420613672172 where IdOrden = 1424548
+--update OrdenItem set Descripcion = 'LID SHAFT' where IdOrdenItem = 6316000
 
 select * from OrdenItem_Dyn where IdOrdenItem in (select IdOrdenItem from OrdenItem where IdOrden in (1424548) and RefItemExterno in('420613672172'))
 and IdOrdenItem <> 5723181
@@ -22,7 +25,7 @@ select * from wmwhse1.ORDERS where EXTERNORDERKEY = '0391458953'
 select * from wmwhse1.ORDERDETAIL where EXTERNORDERKEY = '0391458953'
 --420613672172
 
-select * from wmwhse1.SKU where sku = '420613672172'
+select DESCR, * from wmwhse1.SKU where sku = '420613672172'
 
 
 ---
