@@ -3,10 +3,10 @@
 
 --Chequeamos estado, cuando se envio a fleet, dirección 1, y dirección 2 (a donde va el expreso)
 select RECORD_TYPE, status, SENDTOFLEET, ID_DELIVERYADDRESS1, ID_DELIVERYADDRESS2, C_DIFFERENTDELIVERYADDRESS, 
-* from PL_ORDERS where ExternOrderKey = '0250059597' --pendiente de ruteo
+* from [3PL_POOL].dbo.PL_ORDERS where ExternOrderKey = '0250646508' --pendiente de ruteo
 
 
-update PL_ORDERS set C_DIFFERENTDELIVERYADDRESS = 1 where ExternOrderKey = '0250059597'
+update [3PL_POOL].dbo.PL_ORDERS set C_DIFFERENTDELIVERYADDRESS = 1 where ExternOrderKey = '0250646508'
 
 --update PL_ORDERS set STATUS = 1, SENDTOFLEET = null, where ExternOrderKey = '0250663220'
 
@@ -22,19 +22,19 @@ select RECORD_TYPE, * from PL_ORDERS where IDCUSTOMER = 8259
 select * from PL_STATUS where IdCustomer = 956
 
 --Chequeo si hay caracteres especiales
-select * from PL_DELIVERYADDRESSES where IDDELIVERYADDRESSES in ('55465')
+select * from [3PL_POOL].dbo.PL_DELIVERYADDRESSES where IDDELIVERYADDRESSES in ('91155')
 
---update [3PL_POOL].dbo.PL_DELIVERYADDRESSES set STATE = 'Santa Fe' where IDDELIVERYADDRESSES in ('55692')
+--update [3PL_POOL].dbo.PL_DELIVERYADDRESSES set STATE = 'Santa Fe' where IDDELIVERYADDRESSES in ('91155')
 
 --Chequeo el Id_DeliveryAdress2, que es la dirección del expreso, la cual necesito para hacer el update ya que se encontraba en null
-select STATUS, SENDTOFLEET, ID_DELIVERYADDRESS1, dbo.FC_OBTENER_EXPRESO(ID_DELIVERYADDRESS1) EsExpreso,
+select STATUS, SENDTOFLEET, ID_DELIVERYADDRESS1, [3PL_POOL].dbo.FC_OBTENER_EXPRESO(ID_DELIVERYADDRESS1) EsExpreso,
 ID_DELIVERYADDRESS2, ORDERTYPETMS, SUSPENDINDICATOR, * 
-from PL_ORDERS where EXTERNORDERKEY in ('0250059597')
+from [3PL_POOL].dbo.PL_ORDERS where EXTERNORDERKEY in ('0250646508')
 
 
 --Actualizo el estado a ingresado para que el pedido sea visible por routing, sendtofleet a null, y en la dlvadress2 la dirección
 --obtenida de la consulta anterior. De esta manera se genera el reprocesamiento
-update PL_ORDERS set status = 1, SENDTOFLEET = null, ID_DELIVERYADDRESS2 = '55465' where ExternOrderKey = '0250059597'
+--update [3PL_POOL].dbo.PL_ORDERS set status = 1, SENDTOFLEET = null, ID_DELIVERYADDRESS2 = '48531' where ExternOrderKey = '0250646508'
 
 
 /*

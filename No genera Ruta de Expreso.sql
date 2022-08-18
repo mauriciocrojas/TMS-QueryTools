@@ -1,13 +1,23 @@
-select status, * from pl_orders where EXTERNORDERKEY in ('1323186')
+select status, * from [3PL_POOL].dbo.pl_orders where EXTERNORDERKEY in ('1328583')
 
-select * from PL_STATUS where IdCustomer = 3158
+select * from [3PL_POOL].dbo.PL_STATUS where IdCustomer = 3158
 
 select * from Proceso where Descripcion like '%expreso%'
 
 select * from EstadoPedidoTransicion where IdEstadoPedidoTransicion = 1168
 
+--Pedidos -> Viajes (pasar el viaje a "finalizado") -> Paradas -> Buscar la parada del pedido (Entregado a expreso)
+--Pasar la parada a Pendiente, y luego a entregada, verificar la nueva orden y ruta. Devolver viaje a estado original.
 
+select * from Pedido where ReferenciaExterna = '1328583' --1014
 
+select * from EstadoPedido where IdEstadoPedido in (1014, 1001)
+
+--update Pedido set IdEstadoPedido = 1014 where ReferenciaExterna = '1328583'
+
+select IdEstadoViaje, * from Viaje where IdViaje = 263830
+
+--update Viaje set IdEstadoViaje = 7  where IdViaje = 263830
 
 ---------------------------------------------------------------------------------------------------------------
 --Chequeo para crear nueva división política
