@@ -7,7 +7,7 @@ select IdEstadoPedido, Eliminado, * from Pedido where ReferenciaExterna in ('389
 select * from EstadoPedido where IdEstadoPedido in (1, 8, 1006)
 
 
-update pedido set Eliminado=1, FechaEliminacion= GETDATE() where ReferenciaExterna in (
+--update pedido set Eliminado=1, FechaEliminacion= GETDATE() where ReferenciaExterna in (
 
 select ReferenciaExterna from Pedido where ReferenciaExterna in (
 select ReferenciaExterna from Pedido where Eliminado = 0 group by ReferenciaExterna, IdCliente having count(ReferenciaExterna) > 1)
@@ -20,10 +20,10 @@ select ReferenciaExterna from Pedido where Eliminado = 0 group by ReferenciaExte
 
 
 --Con este primer select observamos la cantidad de remitos que tiene para el idorden (por el que filtramos)
-select * from Remito where IdOrden = 1413288
+select * from Remito where IdOrden = 1434792
 
 --Eliminamos el ultimo remito que generó (tomamos el idremito mayor)
---delete Remito where IdRemito = 1285740
+--delete Remito where IdRemito = 1304879
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 --TMS2: ARION - Pedidos sin ClienteOrden
@@ -89,7 +89,7 @@ select * from wmwhse1.TRANSMITLOG where key1 in('0000372310', '0000372314') and 
 
 --Eliminar depositos salida y llegada en la orden , no sabemos que lo pone en 1
 
-update orden set IdDepositoSalida=null,IdDepositoLlegada=null 
+--update orden set IdDepositoSalida=null,IdDepositoLlegada=null 
 where IdDepositoSalida=1 and IdDepositoLlegada=1 and tipo='P'-- and IdOperacion=1009 
 and IdTipoOrden=59
 
@@ -99,7 +99,7 @@ and IdDepositoLlegada = 1 and Tipo = 'P' and IdTipoOrden=59
 
 --actualizamoss las de entrega
 
-update orden set IdDepositoSalida=null,IdDepositoLlegada=null  
+--update orden set IdDepositoSalida=null,IdDepositoLlegada=null  
 
 where IdDepositoSalida=1 and IdDepositoLlegada=1 and tipo='D' --and IdOperacion=1009
 

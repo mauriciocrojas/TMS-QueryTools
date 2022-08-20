@@ -2,30 +2,27 @@
 --El cot se genera sobre la orden
 --960899 codigo mercosur genérico TPV 
 
-select * from Orden where RefOrdenExterna in ('0391495773') 
+select IdEstadoOrden, * from Orden where RefOrdenExterna in ('0391429875') --o filtrar por id orden
 
-select * from OrdenItem where IdOrden in (1426102) 
+select IdOrdenItem, Descripcion, * from OrdenItem where IdOrden in (1437040) 
 
-select sku, * from OrdenItem_Dyn where IdOrdenItem = 6316001
+select sku, * from OrdenItem_Dyn where IdOrdenItem in (6377464)
 
-select sku, * from OrdenItem_Dyn where IdOrdenItem in (6316000,
-6315999) 
+--select * from OrdenItem where RefItemExterno in ('420613672172') 
 
-select * from OrdenItem where RefItemExterno in ('420613672172') --o filtrar por id orden
-
---update OrdenItem set Descripcion = 'LID SHAFT' where IdOrdenItem = 6316000
+--update OrdenItem set Descripcion = '300005801441' where IdOrdenItem = 6377464
 
 select * from OrdenItem_Dyn where IdOrdenItem in (select IdOrdenItem from OrdenItem where IdOrden in (1424548) and RefItemExterno in('420613672172'))
 and IdOrdenItem <> 5723181
 
 ----
 --Chequeo de infor 11, ph da
-select * from wmwhse1.ORDERS where EXTERNORDERKEY = '0391458953'
 
-select * from wmwhse1.ORDERDETAIL where EXTERNORDERKEY = '0391458953'
---420613672172
+select status, * from [SCPHL].wmwhse1.ORDERS where EXTERNORDERKEY = '0391429875'
 
-select DESCR, * from wmwhse1.SKU where sku = '420613672172'
+select * from [SCPHL].wmwhse1.ORDERDETAIL where EXTERNORDERKEY = '0391429875'
+
+select DESCR, * from [SCPHL].wmwhse1.SKU where sku = '300005801441'
 
 
 ---

@@ -1,49 +1,53 @@
 -------------------- PORTAL -------------------------
 
 --Copiar Clientes Portal
-select * from PL_USERS where USERNAME = 'jfumarola'
-select * from PL_USERS where USERNAME = 'gcastano'
+select * from [3PL_POOL].dbo.PL_USERS where USERNAME = 'jfumarola'
+select * from [3PL_POOL].dbo.PL_USERS where USERNAME = 'gcastano'
 
-select * from PL_USERS_CUSTOMERS where IDUSER = 186
-select * from PL_USERS_CUSTOMERS where IDUSER = 643
+select * from [3PL_POOL].dbo.PL_USERS_CUSTOMERS where IDUSER = 186
+select * from [3PL_POOL].dbo.PL_USERS_CUSTOMERS where IDUSER = 643
 
 --insert into PL_USERS_CUSTOMERS 
-select 643, IDCUSTOMER, NULL, getdate() from PL_USERS_CUSTOMERS where IDUSER = 186
+select 643, IDCUSTOMER, NULL, getdate() from [3PL_POOL].dbo.PL_USERS_CUSTOMERS where IDUSER = 186
 
 
 -------------------- FLEET -------------------------
 
-select * from Usuario where Login = 'dailopez'
-select * from Usuario where Login = 'snoguera'
+select * from Usuario where Login = 'cbarcala'
+select * from Usuario where Login = 'jrua'
+
+--Grupos Fleet
+select * from GrupoUsuario where Login = 'cbarcala'
+select * from GrupoUsuario where Login = 'jrua'
 
 --Copiar Sucursal Fleet
-select * from UsuarioSucursal where Login = 'dailopez'
-select * from UsuarioSucursal where Login = 'snoguera'
+select * from UsuarioSucursal where Login = 'cbarcala'
+select * from UsuarioSucursal where Login = 'jrua'
 
 --insert into UsuarioSucursal
-select 'snoguera', IdSucursal, 0 from UsuarioSucursal where Login = 'dailopez'
+select 'cbarcala', IdSucursal, 0 from UsuarioSucursal where Login = 'jrua'
 
 --Copiar Operacion Fleet
-select * from UsuarioOperacion where Login = 'dailopez'
-select * from UsuarioOperacion where Login = 'snoguera'
+select * from UsuarioOperacion where Login = 'cbarcala'
+select * from UsuarioOperacion where Login = 'jrua'
 
 --insert into UsuarioOperacion
-select IdOperacion,'snoguera', 0 from UsuarioOperacion where Login = 'dailopez'
+select IdOperacion,'cbarcala', 0 from UsuarioOperacion where Login = 'jrua'
 
 --Copiar Clientes Fleet--
-select * from UsuarioCliente where Login = 'dailopez'
-select * from UsuarioCliente where Login = 'snoguera'
+select * from UsuarioCliente where Login = 'cbarcala'
+select * from UsuarioCliente where Login = 'jrua'
 
----insert into UsuarioCliente
-select IdCliente, 'snoguera', 0, 0 from UsuarioCliente where Login = 'dailopez'
+--insert into UsuarioCliente
+select IdCliente, 'cbarcala', 0, 0 from UsuarioCliente where Login = 'jrua'
 
 
 --Copiar Deposito Fleet--
-select * from UsuarioDeposito where Login = 'snoguera'
-select * from UsuarioDeposito where Login = 'dailopez'
+select * from UsuarioDeposito where Login = 'cbarcala'
+select * from UsuarioDeposito where Login = 'jrua'
 
----insert into UsuarioDeposito
-select IdDeposito, 'snoguera', 0 from UsuarioDeposito where Login = 'dailopez'
+--insert into UsuarioDeposito
+select IdDeposito, 'cbarcala', 0 from UsuarioDeposito where Login = 'jrua'
 
 
 --Extra

@@ -49,4 +49,19 @@ Record_Type((como ingresó el pedido)pl_orders):
 --null interfaz
 --2,  import excel
 --3 manual
+
+--
+TRANSMITFLAGS:
+
+2:
+Cuando el pedido se prepara en infor, genera un registro de tablename = 'customerorderstaged' 
+con el campo transmitflag2 en 9 (diciendo que se procesó la actualización en portal), 
+y el envío de interfaz de confirmación de preparación se realiza por el cambio en portal (se envía desde portal).
+
+3:
+El campo transmitflag3 en 9, significa que se procesó la dropid y actualizó en fleet el pedido y orden.
+
+
+
+
 */
