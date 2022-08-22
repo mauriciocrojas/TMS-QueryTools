@@ -54,6 +54,7 @@ Record_Type((como ingresó el pedido)pl_orders):
 TRANSMITFLAGS:
 
 2:
+--interfaz de confirmacion al cliente
 Cuando el pedido se prepara en infor, genera un registro de tablename = 'customerorderstaged' 
 con el campo transmitflag2 en 9 (diciendo que se procesó la actualización en portal), 
 y el envío de interfaz de confirmación de preparación se realiza por el cambio en portal (se envía desde portal).
@@ -61,6 +62,10 @@ y el envío de interfaz de confirmación de preparación se realiza por el cambio e
 3:
 El campo transmitflag3 en 9, significa que se procesó la dropid y actualizó en fleet el pedido y orden.
 
+-----------------------------------------------------
+--OriginalQTY lo que envia el cliente
+--Openqty lo que se preparó pero aún no se expidió
+--Shippedqty lo expedido
 
 
 

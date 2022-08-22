@@ -2,7 +2,7 @@
 
 select status, * from [SCMDZ].wmwhse2.ORDERS where EXTERNORDERKEY = '0050450669'
 
-select * from [SCMDZ].wmwhse2.ORDERDETAIL where EXTERNORDERKEY = '0391429875'
+select * from [SCMDZ].wmwhse2.ORDERDETAIL where EXTERNORDERKEY = '0050450669'
 
 select * from [SCMDZ].wmwhse2.ORDERSTATUSSETUP
 select * from [SCMDZ].wmwhse2.ORDERSTATUSSETUP where CODE = 75
@@ -20,3 +20,8 @@ select status, * from [SCPHL].wmwhse1.ORDERS where EXTERNORDERKEY = '0391429875'
 select * from [SCPHL].wmwhse1.ORDERDETAIL where EXTERNORDERKEY = '0391429875'
 
 select DESCR, * from [SCPHL].wmwhse1.SKU where sku = '300005801441'
+
+
+--OriginalQTY lo que envia el cliente
+--Openqty lo que se preparó pero aún no se expidió
+--Shippedqty lo expedido
