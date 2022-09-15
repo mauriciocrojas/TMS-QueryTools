@@ -1,5 +1,13 @@
 --TMS1: ARION - Control Pedidos Duplicados
+/*
+Solución: Revisar en esta consulta los pedidos duplicados, chequear que los pedidos duplicados en ambos casos sean 1 el estado del pedido.
+Si el idestadopedido es 1 en ambos pedidos, eliminar manualmente uno de los pedidos, o desde fleet.
 
+Acción:
+Baja lógica al pedido, donde ejecutamos la subconsulta(nombrada anteriormente), 
+y elimina los pedidos en estado 1 (REVISAR SI EL PEDIDO DUPLICADO EN AMBOS CASOS ES 1 NO HACER LA BAJA, 
+ya que estarías eliminando el pedido sin dejar uno correcto).
+*/
 select ReferenciaExterna from Pedido where Eliminado = 0 group by ReferenciaExterna, IdCliente having count(ReferenciaExterna) > 1
 
 select IdEstadoPedido, Eliminado, * from Pedido where ReferenciaExterna in ('38951101','38938801-M-532481')
@@ -13,6 +21,22 @@ select ReferenciaExterna from Pedido where ReferenciaExterna in (
 select ReferenciaExterna from Pedido where Eliminado = 0 group by ReferenciaExterna, IdCliente having count(ReferenciaExterna) > 1)
 
 ) and IdEstadoPedido=1
+
+--TMS1: ARION - Rutas Duplicadas
+
+select * from Ruta where IdRuta in (310645, 310646)
+
+select * from rutarecurso where idruta in (310645, 310646)
+
+select * from BitacoraRuta where idruta in (310645, 310646)
+
+--En este caso, la ruta se triplicó, borrar las últimas dos que se generaron
+
+--delete Ruta where IdRuta in (310645, 310646)
+
+--delete rutarecurso where idruta in (310645, 310646)
+
+--delete BitacoraRuta where idruta in (310645, 310646)
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
