@@ -18,8 +18,17 @@ Philips x3 (TPV, DA, PH)
 Carrier (Fueguina, Arg)
 La Virginia 
 Sabic
+---
 
---
+/*
+select c.RazonSocial, toc.Descripcion from cliente c
+inner join OperacionCliente oc on c.IdCliente = oc.IdCliente
+inner join operacion o on o.IdOperacion = oc.IdOperacion
+inner join TipoOperacion toc on toc.IdTipoOperacion = o.IdTipoOperacion
+where c.IdCliente in( 7770)
+*/
+---
+
 Pending Preparing (Pasaje de portal a infor): 
 Rutea primero, portal, pending routing, fleet -> comienza circuito ruteo.
 

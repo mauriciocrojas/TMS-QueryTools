@@ -20,10 +20,10 @@ select ReferenciaExterna from Pedido where Eliminado = 0 group by ReferenciaExte
 
 
 --Con este primer select observamos la cantidad de remitos que tiene para el idorden (por el que filtramos)
-select * from Remito where IdOrden = 1434792
+select * from Remito where IdOrden = 1460272
 
 --Eliminamos el ultimo remito que generó (tomamos el idremito mayor)
---delete Remito where IdRemito = 1304879
+--delete Remito where IdRemito = 1329387
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 --TMS2: ARION - Pedidos sin ClienteOrden
@@ -37,17 +37,19 @@ correr la interfaz de remito en el caso de nike en portal (LIBERATIONLOG)  y lue
 --!--
 
 
-select status, SENDTOFLEET, * from [3PL_POOL].dbo.PL_ORDERS where EXTERNORDERKEY in ('1092723804')
+select status, SENDTOFLEET, * from [3PL_POOL].dbo.PL_ORDERS where EXTERNORDERKEY in ('000000136585')
 
 --select status, SENDTOFLEET, ID_DELIVERYADDRESS1, ID_DELIVERYADDRESS2, * from [3PL_POOL].dbo.PL_ORDERS where EXTERNORDERKEY in ('0391457875')
 
 select * from [3PL_POOL].dbo.PL_ORDERDETAIL where IdOrder in ('1342282')
 
+select * from [3PL_POOL].dbo.PL_CUSTOMERS where IDCUSTOMER = 1166
+
 --select * from [3PL_POOL].dbo.PL_DELIVERYADDRESSES where IDDELIVERYADDRESSES=55519
 
 
---En este caso se debe reprocesar desde portal para que ingrese nuevamente en fleet con el cliente orden completo.
---update [3PL_POOL].dbo.PL_Orders set SENDTOFLEET = null, status = 1 where EXTERNORDERKEY in ('1092723804')
+--En este caso se debe reprocesar desde portal para que ingrese nuevamente en fleet con el cliente orden completo:
+--update [3PL_POOL].dbo.PL_Orders set SENDTOFLEET = null, status = 3 where EXTERNORDERKEY in ('000000136585')
 
 select * from [3PL_POOL].dbo.PL_STATUS where IdCustomer = 64 and value in (88)
 
@@ -55,16 +57,16 @@ select * from [3PL_POOL].dbo.PL_LIBERATION_LOG where EXTERNORDERKEY in ('1092723
 
 
 
-select Eliminado, IdEstadoPedido, IdClienteOrden, * from [UNIGIS_DataRepository].dbo.Pedido where ReferenciaExterna in ('1092723804')
+select Eliminado, IdEstadoPedido, IdClienteOrden, * from [UNIGIS_DataRepository].dbo.Pedido where ReferenciaExterna in ('000000136585')
 
---Devuelvo el pedido a su estado original
---update [UNIGIS_DataRepository].dbo.Pedido set IdEstadoPedido = 1013 where ReferenciaExterna in ('1092723804') and Eliminado = 0
+--Devuelvo el pedido a su estado original:
+update [UNIGIS_DataRepository].dbo.Pedido set IdEstadoPedido = 2 where ReferenciaExterna in ('000000136585') and Eliminado = 0
 
 select * from [UNIGIS_DataRepository].dbo.Orden where RefOrdenExterna in ('1092723804') 
 
 --Al reprocesar desde portal, ingresan los pedidos con IdClienteOrden, 
---y debemos eliminar de manera lógica los pedidos sin IdClienteOrden
---update [UNIGIS_DataRepository].dbo.Pedido set Eliminado = 1 where IdPedido in ('1084779')
+--y debemos eliminar de manera lógica los pedidos sin IdClienteOrden:
+update [UNIGIS_DataRepository].dbo.Pedido set Eliminado = 1 where IdPedido in ('1116112')
 
 select * from [UNIGIS_DataRepository].dbo.EstadoPedido where IdEstadoPedido in (1013)
 

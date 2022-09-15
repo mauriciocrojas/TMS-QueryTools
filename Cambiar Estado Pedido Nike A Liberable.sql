@@ -1,14 +1,28 @@
 --Consulta base PL
 
-select RECORD_TYPE, status, * from  [3PL_POOL].dbo.PL_ORDERS where EXTERNORDERKEY in ('1083423494')
+select RECORD_TYPE, status, * from  [3PL_POOL].dbo.PL_ORDERS where EXTERNORDERKEY in (
+'1100401421',
+'1099764722'
+)
 
 select * from [3PL_POOL].dbo.PL_STATUS where IdCustomer=64
 
 
-select * from [3PL_POOL].dbo.PL_LIBERATION_LOG where EXTERNORDERKEY in ('1088613050')
+select * from [3PL_POOL].dbo.PL_LIBERATION_LOG where EXTERNORDERKEY in (
+'1100401421',
+'1099764722'
+)
+
+--delete [3PL_POOL].dbo.PL_LIBERATION_LOG where EXTERNORDERKEY in (
+'1100401421',
+'1099764722'
+)
 
 --Paso el estado del pedido a liberable (pickeado 88, no entregado 12, reenvio 6)
-update PL_ORDERS set STATUS = 88 where EXTERNORDERKEY in ('1083423494')
+update [3PL_POOL].dbo.PL_ORDERS set STATUS = 88 where EXTERNORDERKEY in (
+'1100401421',
+'1099764722'
+)
 
 --Consulta base Nike (151), esquema wmwhse1
 

@@ -1,53 +1,60 @@
 -------------------- PORTAL -------------------------
 
 --Copiar Clientes Portal
-select * from [3PL_POOL].dbo.PL_USERS where USERNAME = 'jfumarola'
-select * from [3PL_POOL].dbo.PL_USERS where USERNAME = 'gcastano'
+select * from [3PL_POOL].dbo.PL_USERS where USERNAME = 'evidal'
+select * from [3PL_POOL].dbo.PL_USERS where USERNAME = 'jalbarengo'
 
-select * from [3PL_POOL].dbo.PL_USERS_CUSTOMERS where IDUSER = 186
-select * from [3PL_POOL].dbo.PL_USERS_CUSTOMERS where IDUSER = 643
+select * from [3PL_POOL].dbo.PL_USERS_CUSTOMERS where IDUSER = 660
+select * from [3PL_POOL].dbo.PL_USERS_CUSTOMERS where IDUSER = 489
 
---insert into PL_USERS_CUSTOMERS 
-select 643, IDCUSTOMER, NULL, getdate() from [3PL_POOL].dbo.PL_USERS_CUSTOMERS where IDUSER = 186
+insert into [3PL_POOL].dbo.PL_USERS_CUSTOMERS 
+select 660, IDCUSTOMER, NULL, getdate() from [3PL_POOL].dbo.PL_USERS_CUSTOMERS where IDUSER = 489
 
 
 -------------------- FLEET -------------------------
 
-select * from Usuario where Login = 'cbarcala'
-select * from Usuario where Login = 'jrua'
+select * from Usuario where Login = 'evidal'
+select * from Usuario where Login = 'jalbarengo'
+
+insert into Usuario VALUES(
+'evidal','','Vidal','Elias','','','','','','',null,1,0,0,null,0,null,0,0,0,'LDAP','evidal@exologista.com',null,null,null,null,0,'.',null,'Metric'
+)
 
 --Grupos Fleet
-select * from GrupoUsuario where Login = 'cbarcala'
-select * from GrupoUsuario where Login = 'jrua'
+select * from GrupoUsuario where Login = 'evidal'
+select * from GrupoUsuario where Login = 'jalbarengo'
+
+insert into GrupoUsuario (IdGrupo, Login) VALUES (
+5,'evidal'
+)
 
 --Copiar Sucursal Fleet
-select * from UsuarioSucursal where Login = 'cbarcala'
-select * from UsuarioSucursal where Login = 'jrua'
+select * from UsuarioSucursal where Login = 'evidal'
+select * from UsuarioSucursal where Login = 'jalbarengo'
 
 --insert into UsuarioSucursal
-select 'cbarcala', IdSucursal, 0 from UsuarioSucursal where Login = 'jrua'
+select 'evidal', IdSucursal, 0 from UsuarioSucursal where Login = 'jalbarengo'
 
 --Copiar Operacion Fleet
-select * from UsuarioOperacion where Login = 'cbarcala'
-select * from UsuarioOperacion where Login = 'jrua'
+select * from UsuarioOperacion where Login = 'evidal'
+select * from UsuarioOperacion where Login = 'jalbarengo'
 
 --insert into UsuarioOperacion
-select IdOperacion,'cbarcala', 0 from UsuarioOperacion where Login = 'jrua'
+select IdOperacion,'evidal', 0 from UsuarioOperacion where Login = 'jalbarengo'
 
 --Copiar Clientes Fleet--
-select * from UsuarioCliente where Login = 'cbarcala'
-select * from UsuarioCliente where Login = 'jrua'
+select * from UsuarioCliente where Login = 'evidal'
+select * from UsuarioCliente where Login = 'jalbarengo'
 
 --insert into UsuarioCliente
-select IdCliente, 'cbarcala', 0, 0 from UsuarioCliente where Login = 'jrua'
-
+select IdCliente, 'evidal', 0, 0 from UsuarioCliente where Login = 'jalbarengo'
 
 --Copiar Deposito Fleet--
-select * from UsuarioDeposito where Login = 'cbarcala'
-select * from UsuarioDeposito where Login = 'jrua'
+select * from UsuarioDeposito where Login = 'evidal'
+select * from UsuarioDeposito where Login = 'jalbarengo'
 
 --insert into UsuarioDeposito
-select IdDeposito, 'cbarcala', 0 from UsuarioDeposito where Login = 'jrua'
+select IdDeposito, 'evidal', 0 from UsuarioDeposito where Login = 'jalbarengo'
 
 
 --Extra
