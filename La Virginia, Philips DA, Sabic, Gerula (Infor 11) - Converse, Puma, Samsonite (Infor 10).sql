@@ -38,6 +38,19 @@ select * from [SCMC4].wmwhse1.TRANSMITLOG where key1 = '0000003964' and TABLENAM
 update [SCMC4].wmwhse1.TRANSMITLOG set TRANSMITFLAG3 = 0 where key1 = '0000003964' and TABLENAME ='customerorderstaged'
 
 
+--Gerula:
+
+select * from [SCMC4].wmwhse3.orders where EXTERNORDERKEY in ('21715', '21712')
+
+select * from [SCMC4].wmwhse3.ORDERSTATUSSETUP where CODE = 17
+
+select * from [SCMC4].wmwhse3.TRANSMITLOG where key1 in ('0000001083','0000001084')
+
+--transmitflag3 envía a de infor a fleet.
+
+update [SCMC4].wmwhse3.TRANSMITLOG set TRANSMITFLAG3 = 0 where key1 in ('0000001083','0000001084')
+
+
 ---
 --OriginalQTY lo que envia el cliente
 --Openqty lo que se preparó pero aún no se expidió

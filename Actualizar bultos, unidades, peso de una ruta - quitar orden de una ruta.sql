@@ -1,16 +1,5 @@
 select * from Pedido where ReferenciaExterna in (
-'1338598',
-'1338661',
-'1338750',
-'1339069',
-'1339099',
-'1339119',
-'1339342',
-'1339357',
-'1339459',
-'1339700',
-'TRF6730088|P',
-'TRF6730089|P'
+''
 )
 
 select * from EstadoPedido where IdEstadoPedido in (4, 9)
