@@ -29,13 +29,24 @@ update [SCPHL].wmwhse1.TRANSMITLOG set TRANSMITFLAG3 = 0 where key1 in('00000128
 
 --Sabic:
 
-select status, * from [SCMC4].wmwhse1.orders where externorderkey = '805215797'
+select status, * from [SCMC4].wmwhse1.orders where externorderkey in ('805264159-2', '805274506-2', '805274508-2')
 
-select * from [SCMC4].wmwhse1.ORDERSTATUSSETUP where CODE = 17
+select * from [SCMC4].wmwhse1.ORDERSTATUSSETUP where CODE = 02
 
-select * from [SCMC4].wmwhse1.TRANSMITLOG where key1 = '0000003964' and TABLENAME ='customerorderstaged'
+select * from [SCMC4].wmwhse1.TRANSMITLOG where key1 in(
+'0000004031',
+'0000004029',
+'0000004030') and TABLENAME ='customerorderstaged'
 
-update [SCMC4].wmwhse1.TRANSMITLOG set TRANSMITFLAG3 = 0 where key1 = '0000003964' and TABLENAME ='customerorderstaged'
+select * from [SCMC4].wmwhse1.TRANSMITLOG where key1 in(
+'0000004031',
+'0000004029',
+'0000004030') 
+
+update [SCMC4].wmwhse1.TRANSMITLOG set TRANSMITFLAG3 = 0 where key1 in(
+'0000004031',
+'0000004029',
+'0000004030') and TABLENAME ='customerorderstaged'
 
 
 --Gerula:

@@ -12,6 +12,7 @@
 --1014 Replanificada
 --1025 Retirado
 --1018 Aprobada
+--1020 Entregada a expreso
 
 
 --Estado Pedido
@@ -25,9 +26,11 @@
 --7 Re-Planificado
 --No Preparado 1020
 --1013 Pendiente de remito
+--1014 Entregado a expreso
 --9 cancelado
 --1004 retira cliente
 --1021 Retirado
+
 
 --select * from EstadoPedido
 --select * from EstadoOrden
@@ -50,7 +53,9 @@
    inner join EstadoOrden eoo on eoo.IdEstadoOrden = o.IdEstadoOrden
    inner join EstadoPedido ep on ep.IdEstadoPedido = @IdEstadoPedidoNew
    inner join EstadoOrden eo on eo.IdEstadoOrden = @IdEstadoOrdenNew
-   where o.IdOrden in (1472198)
+   where o.IdOrden in (1475727,
+1475701,
+1475702)
 		    
  ---Bloque de pedido---
         --Carga registro cambio de estado en bitácora
