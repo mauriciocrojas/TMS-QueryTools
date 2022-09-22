@@ -44,10 +44,10 @@ select * from BitacoraRuta where idruta in (310645, 310646)
 
 
 --Con este primer select observamos la cantidad de remitos que tiene para el idorden (por el que filtramos)
-select * from Remito where IdOrden = 1460272
+select * from Remito where IdOrden = 1485030
 
 --Eliminamos el ultimo remito que generó (tomamos el idremito mayor)
---delete Remito where IdRemito = 1329387
+--delete Remito where IdRemito = 1352026
 ------------------------------------------------------------------------------------------------------------------------------------------
 
 --TMS2: ARION - Pedidos sin ClienteOrden
