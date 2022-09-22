@@ -94,12 +94,12 @@ update [SCMC1].wmwhse2.TRANSMITLOG set TRANSMITFLAG3 = 0 where key1 in('00000446
 
 --Samsonite:
 
-select status, * from [SCMC1].wmwhse3.ORDERS where EXTERNORDERKEY like '%0711900880%'
+select status, * from [SCMC1].wmwhse3.ORDERS where EXTERNORDERKEY like '%0711940056%'
 
 select * from [SCMC1].wmwhse3.ORDERSTATUSSETUP where CODE = 75
 
-select * from [SCMC1].wmwhse3.ORDERDETAIL where EXTERNORDERKEY = '0391545797'
+select * from [SCMC1].wmwhse3.ORDERDETAIL where EXTERNORDERKEY = '0000011113'
 
-select * from [SCMC1].wmwhse3.TRANSMITLOG where key1 in('0000044600') and TABLENAME ='customerorderstaged'
+select * from [SCMC1].wmwhse3.TRANSMITLOG where key1 in('0000011113') and TABLENAME ='customerorderstaged'
 
-update [SCMC1].wmwhse3.TRANSMITLOG set TRANSMITFLAG3 = 0 where key1 in('0000044600') and TABLENAME ='customerorderstaged'
+update [SCMC1].wmwhse3.TRANSMITLOG set TRANSMITFLAG3 = 0 where key1 in('0000011113') and TABLENAME ='customerorderstaged'

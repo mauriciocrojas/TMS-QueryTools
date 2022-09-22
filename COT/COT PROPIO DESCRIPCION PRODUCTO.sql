@@ -5,13 +5,50 @@
 
 select IdEstadoOrden, * from Orden where RefOrdenExterna in ('0391429875') --o filtrar por id orden
 
-select IdOrdenItem, Descripcion, * from OrdenItem where IdOrden in (1437040) 
+select * from Orden where IdOrden = 1481648
 
-select sku, * from OrdenItem_Dyn where IdOrdenItem in (6377464)
+select IdOrdenItem, Descripcion, * from OrdenItem where IdOrden in (1481648) 
+
+
+select sku, * from OrdenItem_Dyn where IdOrdenItem in (
+6789984,
+6789985,
+6789986,
+6789987,
+6789988,
+6789989,
+6789990,
+6789991,
+6789992
+)
 
 --select * from OrdenItem where RefItemExterno in ('420613672172') 
 
---update OrdenItem set Descripcion = '300005801441' where IdOrdenItem = 6377464
+select * from Pedido where IdCliente =6490 order by IdPedido DESC
+
+select * from Cliente where NombreFantasia like '%samso%'
+
+select * from Orden where RefOrdenExterna = '0711757571'
+
+select * from ORdenItem where IdOrden = 1464754
+
+select * from OrdenItem_Dyn where IdOrdenItem = 6634228
+
+update OrdenItem_Dyn set CodigoMercosur  = 'ACT', NroDespacho = 0, NumeroLinea = 0, OrigenProducto = 0 where IdOrdenItem in (
+6789984,
+6789985,
+6789986,
+6789987,
+6789988,
+6789989,
+6789990,
+6789991,
+6789992
+)
+
+select * from PedidoItem_Dyn where IdPedidoItem in (
+
+)
 
 select * from OrdenItem_Dyn where IdOrdenItem in (select IdOrdenItem from OrdenItem where IdOrden in (1424548) and RefItemExterno in('420613672172'))
 and IdOrdenItem <> 5723181
