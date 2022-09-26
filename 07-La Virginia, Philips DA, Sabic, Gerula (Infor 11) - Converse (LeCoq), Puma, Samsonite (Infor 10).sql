@@ -85,7 +85,7 @@ update [SCMC4].wmwhse3.TRANSMITLOG set TRANSMITFLAG3 = 0 where key1 in ('0000001
 ---
 
 --(Infor 10-srv150):
---Converse 
+--Converse (LeCoq)
 
 select status, * from [SCMC1].wmwhse1.ORDERS where EXTERNORDERKEY like '%000000136585%'
 
