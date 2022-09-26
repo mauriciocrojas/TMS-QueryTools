@@ -16,9 +16,7 @@ select * from EstadoPedido where IdEstadoPedido in (1, 8, 1006)
 
 
 --update pedido set Eliminado=1, FechaEliminacion= GETDATE() where ReferenciaExterna in (
-
 select ReferenciaExterna from Pedido where Eliminado = 0 group by ReferenciaExterna, IdCliente having count(ReferenciaExterna) > 1
-
 ) and IdEstadoPedido=1
 
 
