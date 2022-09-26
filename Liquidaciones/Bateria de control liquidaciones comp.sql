@@ -11,11 +11,17 @@ exec Prc_PreCarga_Liquidaciones_Venta
 
 --Modulo de análisis
 --------------------
-select * from EXO_TB_CONTROL_LIQUIDACION_VENTA where IdLiquidacion = '539586'
+--Agrupado por item sap
+select * from EXO_TB_CONTROL_LIQUIDACION_VENTA where IdLiquidacion in (
+542222, 542495
+)
 
-
+--Agrupado por guía viaje
 select * from EXO_TB_Reporte_Control_Liquidacion_Venta with(nolock) where Liquidacion = '539586'
 
+
+--Chequear [dbo].[Prc_PreCarga_Liquidaciones_Venta]
+--[dbo].[Prc_Upd_Biztalk_Liquidacion_Venta] 
 
 --Control tarifas en firma 2
 Select stg_t.id,

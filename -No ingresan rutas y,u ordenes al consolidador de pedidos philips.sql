@@ -1,21 +1,13 @@
-select idorden, IdRuta, IdRutaFleet, * from exo_ordenes_confirmadas_phl where IdRutaFleet in (
-314971,
-314973,
-314974,
-314975,
-314977,
-314978,
-314980
+select idorden, IdRuta, IdRutaFleet, * from exo_ordenes_confirmadas_phl where IdOrden in (
+1486915,
+1486917,
+1486918
 )
 
-delete exo_ordenes_confirmadas_phl where IdRutaFleet in (
-314971,
-314973,
-314974,
-314975,
-314977,
-314978,
-314980
+delete exo_ordenes_confirmadas_phl where IdOrden in (
+1486915,
+1486917,
+1486918
 )
 
 select RefOrdenExterna, * from Orden where IdOrden in (
@@ -47,30 +39,17 @@ select * from [3PL_POOL].dbo.Pl_Orders where Route = '3149751'
 
 select * from Ruta where IdRuta = 314974
 
-select IdRuta, IdJornada, * from Orden where RefOrdenExterna in(
-'0081746497',
-'0081746499',
-'0081745757',
-'0081745755',
-'0081745753',
-'0081745765',
-'0081745778',
-'0081745790',
-'0081745826',
-'0081744997',
-'0081745004',
-'0081745130',
-'0081745115',
-'0081745139',
-'0081745148',
-'0081745162',
-'0081746505',
-'0081746503',
-'0081745784',
-'0081745783'
+select IdRuta, IdJornada, * from Orden where RefOrdenExterna in (
+'0081750668',
+'0081750669',
+'0081750708'
 )
 
-select * from Pedido where ReferenciaExterna = '0081745783'
+select * from Pedido where ReferenciaExterna in (
+'81750668',
+'81750669',
+'81750708'
+)
 
 --Update [3PL_POOL].dbo.Pl_Orders set status=5, sendtofleet=null, route=’IdRuta’, externalorderkey2=Idorden where externorderkey=’X’
 

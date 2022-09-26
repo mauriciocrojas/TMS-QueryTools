@@ -1,23 +1,41 @@
---Estado Orden
---1000 Preparado
---4 Entregado
---5 NO ENTREGA x CLIENTE
---1002 En Prep Viaje
---3 En Viaje
---6 No Entrega Exo
---1023 No Preparado
-
---Estado Pedido
---4 Preparado
---8 Entregado
---5 NO ENTREG. M-CLIENTE
---1005 En Prep Viaje
---1001 En Viaje
---6 No Entrega Exo
---7 Re-Planificado
---No Preparado 1020
+--Estado Pedido:
 --1 Ingresado
+--4 Preparado
+--5 No entrega M. Cliente
+--6 No entrega M. Exo
+--7 Replanificado
+--8 Entregado
+--9 Cancelado
+--1001 En Viaje
+--1004 Retira cliente
+--1005 En Prep Viaje
 --1013 Pendiente de remito
+--1014 Entregado a expreso
+--1020 No Preparado 
+--1021 Retirado
+
+
+
+--Estado Orden:
+--1 Ingresada
+--3 En Viaje
+--4 Entregada
+--5 No entrega M. Cliente
+--6 No entrega M. Exo
+--7 Cancelada
+--1000 Preparada
+--1002 En Prep Viaje
+--1012 Retira cliente
+--1014 Replanificada
+--1018 Aprobada
+--1020 Entregada a expreso
+--1023 No preparada
+--1025 Retirado
+
+
+--select * from EstadoPedido
+--select * from EstadoOrden
+
 
    DECLARE @IdEstadoPedidoNew int = 1, @IdEstadoOrdenNew int = 1012;
 

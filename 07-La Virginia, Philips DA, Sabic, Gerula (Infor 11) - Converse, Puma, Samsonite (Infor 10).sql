@@ -1,7 +1,12 @@
 --(Infor 11-srv95):
 --La Virginia
 
-select status, * from [SCMDZ].wmwhse2.ORDERS where EXTERNORDERKEY = '0050496730'
+select status, * from [SCMDZ].wmwhse2.ORDERS where EXTERNORDERKEY in (
+'0050551599',
+'0050551608',
+'0050551607',
+'0050551610'
+)
 
 select * from [SCMDZ].wmwhse2.ORDERDETAIL where EXTERNORDERKEY = '0050472338'
 
@@ -9,9 +14,19 @@ select * from [SCMDZ].wmwhse2.ORDERSTATUSSETUP
 select * from [SCMDZ].wmwhse2.ORDERSTATUSSETUP where CODE = 2
 
 --key1 = orderkey
-select * from [SCMDZ].wmwhse2.TRANSMITLOG where key1 in('0000007880') and TABLENAME ='customerorderstaged'
+select * from [SCMDZ].wmwhse2.TRANSMITLOG where key1 in(
+'0000012359',
+'0000012367',
+'0000012366',
+'0000012369'
+) and TABLENAME ='customerorderstaged'
 
-update [SCMDZ].wmwhse2.TRANSMITLOG set TRANSMITFLAG3 = 0 where key1 in('0000007880') and TABLENAME ='customerorderstaged'
+update [SCMDZ].wmwhse2.TRANSMITLOG set TRANSMITFLAG3 = 0 where key1 in(
+'0000012359',
+'0000012367',
+'0000012366',
+'0000012369'
+) and TABLENAME ='customerorderstaged'
 
 
 --Philips PH y DA:
