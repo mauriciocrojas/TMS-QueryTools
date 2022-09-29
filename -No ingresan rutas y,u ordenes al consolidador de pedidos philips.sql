@@ -1,7 +1,7 @@
-select idorden, IdRuta, IdRutaFleet, * from exo_ordenes_confirmadas_phl where IdOrden in (
-1486915,
-1486917,
-1486918
+select idorden, IdRuta, * from exo_ordenes_confirmadas_phl where IdOrden in (
+1489985,
+1489986,
+1489987
 )
 
 delete exo_ordenes_confirmadas_phl where IdOrden in (
@@ -9,6 +9,12 @@ delete exo_ordenes_confirmadas_phl where IdOrden in (
 1486917,
 1486918
 )
+
+select IdRuta, IdJornada, * from Orden where IdJornada = 28191 and IdRuta = 59
+
+select * from Ruta where IdRuta = 317986
+
+
 
 select RefOrdenExterna, * from Orden where IdOrden in (
 1477845,
@@ -37,7 +43,7 @@ select RefOrdenExterna, * from Orden where IdOrden in (
 
 select * from [3PL_POOL].dbo.Pl_Orders where Route = '3149751'
 
-select * from Ruta where IdRuta = 314974
+
 
 select IdRuta, IdJornada, * from Orden where RefOrdenExterna in (
 '0081750668',

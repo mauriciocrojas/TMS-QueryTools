@@ -2,13 +2,21 @@
 --Retiro Interior (usa expreso)
 
 --Chequeamos estado, cuando se envio a fleet, dirección 1, y dirección 2 (a donde va el expreso)
-select RECORD_TYPE, status, SENDTOFLEET, ID_DELIVERYADDRESS1, ID_DELIVERYADDRESS2, C_DIFFERENTDELIVERYADDRESS, 
-* from [3PL_POOL].dbo.PL_ORDERS where ExternOrderKey = '0250646508' --pendiente de ruteo
+select IdOrder, RECORD_TYPE, status, SENDTOFLEET, ID_DELIVERYADDRESS1, ID_DELIVERYADDRESS2, C_DIFFERENTDELIVERYADDRESS, 
+* from [3PL_POOL].dbo.PL_ORDERS where ExternOrderKey = 'trf3563368' --pendiente de ruteo
 
+select * from [3PL_POOL].dbo.PL_ORDERDETAIL where IdOrder = '1410784'
 
 update [3PL_POOL].dbo.PL_ORDERS set C_DIFFERENTDELIVERYADDRESS = 1 where ExternOrderKey = '0250646508'
 
---update PL_ORDERS set STATUS = 1, SENDTOFLEET = null, where ExternOrderKey = '0250663220'
+update [3PL_POOL].dbo.PL_ORDERS set STATUS = 1, SENDTOFLEET = null where ExternOrderKey  in('TRF674-147', '677-080') 
+
+
+select  status, SENDTOFLEET, * from [3PL_POOL].dbo.PL_ORDERS where ExternOrderKey in('TRF674-147', '677-080')   --pendiente de ruteo
+
+select * from Pedido where ReferenciaExterna in('TRF674-147', '677-080')  
+
+
 
 
 --null interfaz
@@ -22,7 +30,8 @@ select RECORD_TYPE, * from PL_ORDERS where IDCUSTOMER = 8259
 select * from PL_STATUS where IdCustomer = 956
 
 --Chequeo si hay caracteres especiales
-select * from [3PL_POOL].dbo.PL_DELIVERYADDRESSES where IDDELIVERYADDRESSES in ('91155')
+select * from [3PL_POOL].dbo.PL_DELIVERYADDRESSES where IDDELIVERYADDRESSES in ('24037')
+
 
 --update [3PL_POOL].dbo.PL_DELIVERYADDRESSES set STATE = 'Santa Fe' where IDDELIVERYADDRESSES in ('91155')
 
