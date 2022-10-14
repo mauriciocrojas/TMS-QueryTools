@@ -1,8 +1,10 @@
-select * from GrupoReporteExterno
+select * from GrupoReporteExterno where IdReporteExterno = 39
 
-select * from ReporteExterno where Descripcion like '%Cross%'--25
+select * from ReporteExterno where Descripcion like '%LV%'--39
 
 insert into GrupoReporteExterno
-values (23, 25)
+values (5, 39)
 
-select * from GrupoUsuario where Login = 'jfumarola'
+select * from GrupoUsuario where Login = 'jaldecoa'--5 y 43
+
+select * from Grupo where IdGrupo in (5, 43)

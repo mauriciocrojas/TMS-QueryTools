@@ -1,39 +1,33 @@
---Orden Retiro interior en fleet ingresada y que debería estar en pendiente de aprobación
---Retiro Interior (usa expreso)
+--Pedido tipo [Retiro interior] (usa expreso) en fleet ingresado y que debería estar en pendiente de aprobación:
 
---Chequeamos estado, cuando se envio a fleet, dirección 1, y dirección 2 (a donde va el expreso)
-select IdOrder, RECORD_TYPE, status, SENDTOFLEET, ID_DELIVERYADDRESS1, ID_DELIVERYADDRESS2, C_DIFFERENTDELIVERYADDRESS, 
-* from [3PL_POOL].dbo.PL_ORDERS where ExternOrderKey = 'trf3563368' --pendiente de ruteo
-
-select * from [3PL_POOL].dbo.PL_ORDERDETAIL where IdOrder = '1410784'
-
-update [3PL_POOL].dbo.PL_ORDERS set C_DIFFERENTDELIVERYADDRESS = 1 where ExternOrderKey = '0250646508'
-
-update [3PL_POOL].dbo.PL_ORDERS set STATUS = 1, SENDTOFLEET = null where ExternOrderKey  in('TRF674-147', '677-080') 
-
-
-select  status, SENDTOFLEET, * from [3PL_POOL].dbo.PL_ORDERS where ExternOrderKey in('TRF674-147', '677-080')   --pendiente de ruteo
-
-select * from Pedido where ReferenciaExterna in('TRF674-147', '677-080')  
-
-
-
-
+--RecordType:
 --null interfaz
---2,  import excel
+--2 import excel
 --3 manual
 
-select * from PL_CUSTOMERS where Customer like '%virgi%'
+--Chequeamos estado, cuando se envio a fleet, dirección 1, y dirección 2 (a donde va el expreso)
+select IdOrder, RECORD_TYPE, status, SENDTOFLEET, ID_DELIVERYADDRESS1, ID_DELIVERYADDRESS2, C_DIFFERENTDELIVERYADDRESS, * 
+from [3PL_POOL].dbo.PL_ORDERS where ExternOrderKey = 'trf3563368' --pendiente de ruteo
 
-select RECORD_TYPE, * from PL_ORDERS where IDCUSTOMER = 8259
+--Chequear si la dlv tiene detalle
+select * from [3PL_POOL].dbo.PL_ORDERDETAIL where IdOrder = '1410784'
 
-select * from PL_STATUS where IdCustomer = 956
+--Si es dlv tipo expreso debería tener el C_DIFFERENTDELIVERYADDRESS = 1 
+--update [3PL_POOL].dbo.PL_ORDERS set C_DIFFERENTDELIVERYADDRESS = 1 where ExternOrderKey = '0250646508'
+
+--Reprocesar para que pase a fleet
+--update [3PL_POOL].dbo.PL_ORDERS set STATUS = 1, SENDTOFLEET = null where ExternOrderKey  in ('')
+
+--Chequeo si llegó a fleet
+select * from Pedido where ReferenciaExterna in('TRF674-147', '677-080')  
 
 --Chequeo si hay caracteres especiales
-select * from [3PL_POOL].dbo.PL_DELIVERYADDRESSES where IDDELIVERYADDRESSES in ('24037')
+select * from [3PL_POOL].dbo.PL_DELIVERYADDRESSES where IDDELIVERYADDRESSES in (55740,
+44138)
 
+--Corrijo en caso de haberlos
+--update [3PL_POOL].dbo.PL_DELIVERYADDRESSES set STATE = 'Santa Fe', DISTRICT = 'General Lopez' where IDDELIVERYADDRESSES in (55740)
 
---update [3PL_POOL].dbo.PL_DELIVERYADDRESSES set STATE = 'Santa Fe' where IDDELIVERYADDRESSES in ('91155')
 
 --Chequeo el Id_DeliveryAdress2, que es la dirección del expreso, la cual necesito para hacer el update ya que se encontraba en null
 select STATUS, SENDTOFLEET, ID_DELIVERYADDRESS1, [3PL_POOL].dbo.FC_OBTENER_EXPRESO(ID_DELIVERYADDRESS1) EsExpreso,
@@ -44,6 +38,15 @@ from [3PL_POOL].dbo.PL_ORDERS where EXTERNORDERKEY in ('0250646508')
 --Actualizo el estado a ingresado para que el pedido sea visible por routing, sendtofleet a null, y en la dlvadress2 la dirección
 --obtenida de la consulta anterior. De esta manera se genera el reprocesamiento
 --update [3PL_POOL].dbo.PL_ORDERS set status = 1, SENDTOFLEET = null, ID_DELIVERYADDRESS2 = '48531' where ExternOrderKey = '0250646508'
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+select * from [3PL_POOL].dbo.PL_CUSTOMERS where Customer like '%virgi%'
+
+select RECORD_TYPE, * from [3PL_POOL].dbo.PL_ORDERS where IDCUSTOMER = 8259
+
+select * from [3PL_POOL].dbo.PL_STATUS where IdCustomer = 956
+--------------------------------------------------------------------------------------------------------------------------------------
 
 
 /*

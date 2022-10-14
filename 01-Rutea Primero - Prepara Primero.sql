@@ -4,11 +4,11 @@
 Prepara primero:
 Se rutea con las cantidades modificadas, sin remito no se rutea.
 
-Nike
-Puma
+Nike (itl-srv151 - infor10) (SCNIK - wmwhse1)
+Puma (itl-srv150 - infor10) (SCMC1 - wmwhse2)
 Converse
 Samsonite
-Leqoq
+Lecoq
 Gerula
 
 -------------------------------------------------------------------
@@ -31,6 +31,14 @@ inner join TipoOperacion toc on toc.IdTipoOperacion = o.IdTipoOperacion
 where c.IdCliente in( 7770)
 */
 
+/*
+select p.IdEstadoPedido, ep.Descripcion, p.ReferenciaExterna from Pedido p inner join EstadoPedido ep 
+on p.IdEstadoPedido = ep.IdEstadoPedido where p.ReferenciaExterna in (
+'0081751465', 
+'0081751497',
+'0081751738'
+)
+*/
 -------------------------------------------------------------------
 
 Pending Preparing (Pasaje de portal a infor): 
@@ -42,15 +50,15 @@ el ruteador lo visualiza para rutearlo, le crea la orden y la ruta. Confirma la 
 cambian a "en preparación", y en portal a 3, ahí lo tome la pending preparing para enviarlo a infor.
 
 Record_Type((como ingresó el pedido)pl_orders):
---null interfaz
---2,  import excel
---3 manual
+--Null: interfaz
+--2: importación excel
+--3: manual
 
 
 --Cuando es un cliente Rutea Primero, o un pedido manual. Se debe actualizar
 --el status=1,sendtofleet=null para el pedido que no ingresa.
 
---Cuando el cliente es, nike, converse, samsonite o puma (PREPARA PRIMERO) y 
+--Cuando el cliente es, nike, converse, lecoq, samsonite o puma (PREPARA PRIMERO) y 
 --no es pedido manual. Se debe actualizar el status=3, sendtofleet=null para el pedido que no ingresa.
 
 RTOM: Remito manual.

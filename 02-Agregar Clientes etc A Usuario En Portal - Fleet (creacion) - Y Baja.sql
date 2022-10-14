@@ -1,14 +1,21 @@
 -------------------- PORTAL -------------------------
 
-select * from [3PL_POOL].dbo.PL_USERS where USERNAME = 'ssandoval'
-select * from [3PL_POOL].dbo.PL_USERS where USERNAME = 'jperalta'
+select * from [3PL_POOL].dbo.PL_USERS where USERNAME = 'jaldeco'
+select * from [3PL_POOL].dbo.PL_USERS where USERNAME = 'hnoguerol'
 
 select * from [3PL_POOL].dbo.PL_USERS_CUSTOMERS where IDUSER = 664
 select * from [3PL_POOL].dbo.PL_USERS_CUSTOMERS where IDUSER = 244
 
+--Crear usuario Portal:
+insert into [3PL_POOL].dbo.PL_USERS 
+(USERNAME, IDCUSTOMER, IDROL, BRANCH_OFFICE, TYPE_CUSTOMER_IMAGE, CUSTOMER_IMAGE, ADDDATE, UPDDATE, RESET_KEY, EMAIL, ACTIVE_DIRECTORY_USER, PASSWORD, ID_NUMBER, FIRST_NAME, LAST_NAME, IDMODULE, INACTIVE, IDGROUP) 
+VALUES(
+'jaldeco', 536, 25, null, null, null, GETDATE(), GETDATE(), null, 'jaldeco@exologistica.com', 1, null, 30000000, 'Jesus', 'Aldeco', null, 0, null
+)
+
 --Copiar clientes Portal:
 insert into [3PL_POOL].dbo.PL_USERS_CUSTOMERS 
-select 660, IDCUSTOMER, NULL, getdate() from [3PL_POOL].dbo.PL_USERS_CUSTOMERS where IDUSER = 489
+select 666, IDCUSTOMER, NULL, getdate() from [3PL_POOL].dbo.PL_USERS_CUSTOMERS where IDUSER = 455
 
 --Clientes Portal:
 select * from [3PL_POOL].dbo.PL_CUSTOMERS
@@ -22,36 +29,36 @@ on puc.IDCUSTOMER = pc.IDCUSTOMER where puc.IdUser = 244
 
 -------------------- FLEET -------------------------
 
-select * from Usuario where Login = 'evidal'
-select * from Usuario where Login = 'jalbarengo'
+select * from Usuario where Login = 'ngonzalez'
+select * from Usuario where Login = 'gestion_mobregon'
 
 --Baja:
 --update Usuario set Activo = 0, Eliminado = 1 where Login = 'evsanchez'
 
 --Insertar nuevo usuario en fleet
 insert into Usuario VALUES(
-'evidal','','Vidal','Elias','','','','','','',null,1,0,0,null,0,null,0,0,0,'LDAP','evidal@exologista.com',null,null,null,null,0,'.',null,'Metric'
+'gestion_mobregon','','Obregon','Micaela','','','','','','',null,1,0,0,null,0,null,0,0,0,'LDAP','gestion_mobregon@exologista.com',null,null,null,null,0,'.',null,'Metric'
 )
 
 --Grupos Fleet
 --insert into GrupoUsuario 
-select IdGrupo, 'evidal' from GrupoUsuario where Login = 'evidal'
+select IdGrupo, 'gestion_mobregon' from GrupoUsuario where Login = 'ngonzalez'
 
 --Sucursal Fleet
 --insert into UsuarioSucursal
-select 'evidal', IdSucursal, 0 from UsuarioSucursal where Login = 'jalbarengo'
+select 'gestion_mobregon', IdSucursal, 0 from UsuarioSucursal where Login = 'ngonzalez'
 
 --Operacion Fleet
 --insert into UsuarioOperacion
-select IdOperacion,'evidal', 0 from UsuarioOperacion where Login = 'jalbarengo'
+select IdOperacion,'gestion_mobregon', 0 from UsuarioOperacion where Login = 'ngonzalez'
 
 --Clientes Fleet
 --insert into UsuarioCliente
-select IdCliente, 'evidal', 0, 0 from UsuarioCliente where Login = 'jalbarengo'
+select IdCliente, 'gestion_mobregon', 0, 0 from UsuarioCliente where Login = 'ngonzalez'
 
 --Deposito Fleet
 --insert into UsuarioDeposito
-select IdDeposito, 'evidal', 0 from UsuarioDeposito where Login = 'jalbarengo'
+select IdDeposito, 'gestion_mobregon', 0 from UsuarioDeposito where Login = 'ngonzalez'
 
 
 

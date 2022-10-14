@@ -12,7 +12,9 @@ delete exo_ordenes_confirmadas_phl where IdOrden in (
 
 select IdRuta, IdJornada, * from Orden where IdJornada = 28191 and IdRuta = 59
 
-select * from Ruta where IdRuta = 317986
+--La referenciaExterna de la ruta no debe exceder los 45 caracteres
+select ReferenciaExterna, * from Ruta where IdRuta = 317986
+--update Ruta set ReferenciaExterna = '' where IdRuta = 317986
 
 
 

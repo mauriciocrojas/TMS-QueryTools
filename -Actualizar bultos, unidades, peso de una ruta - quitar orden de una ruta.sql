@@ -17,3 +17,11 @@ select Bultos, Peso, Volumen, Unidades, CantidadOrdenes, * from Ruta where IdRut
 
 select Bultos, Peso, Volumen, Unidades, * from Orden where IdOrden = 1426925
 		--1		5	  0.08		0
+
+
+
+---
+--Pedido
+select Bultos, unidades, * from Pedido where ReferenciaExterna = '000000137174'
+
+--update Pedido set Bultos = 1, Unidades = 90 where ReferenciaExterna = '000000137174' and IdClienteOrden = 48264

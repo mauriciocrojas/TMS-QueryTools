@@ -59,7 +59,7 @@ correr la interfaz de remito en el caso de nike en portal (LIBERATIONLOG)  y lue
 --!--
 
 
-select status, SENDTOFLEET, * from [3PL_POOL].dbo.PL_ORDERS where EXTERNORDERKEY in ('000000136585')
+select RECORD_TYPE, status, SENDTOFLEET, * from [3PL_POOL].dbo.PL_ORDERS where EXTERNORDERKEY in ('1108353318')
 
 --select status, SENDTOFLEET, ID_DELIVERYADDRESS1, ID_DELIVERYADDRESS2, * from [3PL_POOL].dbo.PL_ORDERS where EXTERNORDERKEY in ('0391457875')
 

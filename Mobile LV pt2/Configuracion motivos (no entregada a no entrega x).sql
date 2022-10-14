@@ -204,7 +204,7 @@ insert into EstadoParadaTransicionMotivo VALUES
 En PROD el grupo Seg LV ya tiene las transiciones de no entregada a no entrega x y pendiente, eliminarlas y seguir los pasos para hacerlas exclusivas
 
 delete GrupoEstadoParadaTransicion where (IdEstadoParadaTransicion = 627 or IdEstadoParadaTransicion = 628 
-or IdEstadoParadaTransicion = 629 or IdEstadoParadaTransicion = 630) 
+or IdEstadoParadaTransicion = 629) 
 and IdGrupo in (45)
 
 delete GrupoEstadoParadaTransicion where (IdEstadoParadaTransicion = 448 or IdEstadoParadaTransicion = 450 
